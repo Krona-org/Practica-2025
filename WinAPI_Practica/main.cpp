@@ -17,7 +17,7 @@ protected:
     std::string do_grouping() const override { return ""; }
 };
 
-static HWND hwndCount, hwndMin, hwndMax, hwndUnique, hwndInputFile, hwndReadFile, hwndOutputFile; // поля ввода
+static HWND hwndCount, hwndMin, hwndMax, hwndUnique, hwndInputFile, hwndReadFile, hwndOutputFile;
 static std::vector<int> vec, before;
 
 
