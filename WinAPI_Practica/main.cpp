@@ -7,10 +7,9 @@
 #include <sstream>
 #include <ctime>
 #include <iomanip>
-#include <locale>     // дл€ imbue
-#include <io.h>
-#include <fcntl.h>
-//  ласс дл€ замены точки на зап€тую в дес€тичной части
+#include <locale>     
+
+
 struct comma_decimal : std::numpunct<wchar_t> {
 protected:
     wchar_t do_decimal_point() const override { return L','; }
@@ -122,7 +121,7 @@ bool WriteVectorToFile(const std::vector<int>& vec, const std::wstring& filename
 bool ReadVectorFromFile(std::vector<int>& vec, const std::wstring& filename) {
     vec.clear();
     std::wifstream in(filename);
-    in.imbue(std::locale(".1251")); // чтобы корректно читались кириллица/числа
+    in.imbue(std::locale(".1251")); 
     if (!in.is_open()) return false;
     int num;
     while (in >> num) {
@@ -280,8 +279,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     freopen_s(&f, "CONOUT$", "w", stdout);
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    _setmode(_fileno(stdout), _O_U8TEXT);
-    //std::wcout.imbue(std::locale("ru_RU.UTF-8"));
+    std::wcout.imbue(std::locale("ru_RU.UTF-8"));
 
     WNDCLASSW wc = { 0 };
     wc.lpfnWndProc = WndProc;
