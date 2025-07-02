@@ -38,7 +38,7 @@ std::wstring GetEditText(HWND hwndEdit) {
     GetWindowTextW(hwndEdit, buffer.data(), len);
     return std::wstring(buffer.data());
 }
-
+// новое тест
 bool validInt(std::wstring& str, bool canBeNegative = false) {
     str.erase(0, str.find_first_not_of(L" "));
     str.erase(str.find_last_not_of(L" ") + 1);
@@ -49,7 +49,7 @@ bool validInt(std::wstring& str, bool canBeNegative = false) {
     }
     return true;
 }
-
+// новое
 bool validFilename(std::wstring& str) {
     str.erase(0, str.find_first_not_of(L" "));
     str.erase(str.find_last_not_of(L" ") + 1);
